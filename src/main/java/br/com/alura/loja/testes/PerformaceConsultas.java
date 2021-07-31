@@ -20,9 +20,10 @@ public class PerformaceConsultas {
 	public static void main(String[] args) {
 		popularBancoDeDados();
 		EntityManager em = JPAUtil.getEntityManager();
-		Pedido pedido = em.find(Pedido.class, 1l);
-//		System.out.println(pedido.getData());
-		System.out.println(pedido.getItens().size());
+		PedidoDao pedidoDao = new PedidoDao(em);
+		Pedido pedido = pedidoDao.buscarPedidoComCliente(1l);
+		em.close();
+		System.out.println(pedido.getCliente().getNome());
 	}
 
 	private static void popularBancoDeDados() {
