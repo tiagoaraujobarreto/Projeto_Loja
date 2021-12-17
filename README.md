@@ -1,1 +1,1 @@
-# projetoLoja
+# projeto-loja
